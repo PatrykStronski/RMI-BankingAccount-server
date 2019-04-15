@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
+
 public class MainServ {
     private static String path = "//localhost/StringStorage";
     public static void main(String argv[]) {

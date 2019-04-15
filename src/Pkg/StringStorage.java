@@ -12,7 +12,7 @@ public class StringStorage extends UnicastRemoteObject implements MasterBus {
     private StorageFx str;
     private ArrayList<Token> tokens = new ArrayList<Token>();
     public StringStorage(Registry reg) throws RemoteException {
-        super();
+
         UsrMn u = new UsrMn();
         Storage s = new Storage();
         reg.rebind("//localhost/usr",u);
@@ -28,15 +28,20 @@ public class StringStorage extends UnicastRemoteObject implements MasterBus {
             e.printStackTrace();
         }
     }
+//    @Override
+//    public String registerUser(String login, String password){
+//        boolean repl = this.usr.registerUser(login,password);
+//        if(repl){
+//            return "user registered";
+//        } else {
+//            return "Pkg.User not registered";
+//        }
+//    }
 
-    public String registerUser(String login, String password){
-        boolean repl = this.usr.registerUser(login,password);
-        if(repl){
-            return "user registered";
-        } else {
-            return "Pkg.User not registered";
-        }
-    };
+    @Override
+    public String registerUser(String login, String password) {
+        return null;
+    }
 
     public String authorize(String login, String password){
         String token = this.usr.authenticate(login,password);
